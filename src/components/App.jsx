@@ -9,14 +9,56 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
+  countPositive = () => {
+    let positivePerc = Math.round(
+      (this.state.good * 100) /
+        (this.state.bad + this.state.neutral + this.state.good)
+    );
+
+    return isNaN(positivePerc) ? '0%' : `${positivePerc}%`;
+  };
+  countTotal = () => {
+    let total = this.state.bad + this.state.neutral + this.state.good;
+    return total;
+  };
+  incrementGood = () => {
+    this.setState(prevState => {
+      return {
+        good: prevState.good + 1,
+      };
+    });
+  };
+  incrementNeutral = () => {
+    this.setState(prevState => {
+      return {
+        neutral: prevState.neutral + 1,
+      };
+    });
+  };
+  incrementBad = () => {
+    this.setState(prevState => {
+      return {
+        bad: prevState.bad + 1,
+      };
+    });
+  };
   render() {
     return (
       <>
         <Section title={'Please leave feedback'}>
-          <FeedbackOptions />
+          <FeedbackOptions
+            incrementGood={this.incrementGood}
+            incrementNeutral={this.incrementNeutral}
+            incrementBad={this.incrementBad}
+            state={this.state}
+          />
         </Section>
         <Section title={'Statistics'}>
-          <Statistics />
+          <Statistics
+            countTotal={this.countTotal}
+            countPositive={this.countPositive}
+            state={this.state}
+          />
         </Section>
       </>
     );

@@ -5,3 +5,7 @@
 .statsValue {
   color: rgb(255, 136, 0);
 }
+.notification {
+  font-size: 25px;
+  color: rgb(0, 88, 110);
+}
