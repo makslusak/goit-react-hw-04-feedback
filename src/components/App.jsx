@@ -50,7 +50,6 @@ export class App extends Component {
             incrementGood={this.incrementGood}
             incrementNeutral={this.incrementNeutral}
             incrementBad={this.incrementBad}
-            state={this.state}
           />
         </Section>
         <Section title={'Statistics'}>

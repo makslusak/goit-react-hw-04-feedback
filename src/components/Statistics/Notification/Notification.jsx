@@ -5,3 +5,6 @@ import css from '../Statistics.module.css';
 export const Notification = ({ text }) => (
   <p className={css.notification}>{text}</p>
 );
+Notification.propTypes = {
+  text: PropTypes.string.isRequired,
+};

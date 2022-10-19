@@ -27,3 +27,12 @@ export const Statistics = ({ countPositive, countTotal, state }) => {
     </div>
   );
 };
+Statistics.propTypes = {
+  countPositive: PropTypes.func.isRequired,
+  countTotal: PropTypes.func.isRequired,
+  state: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+  }),
+};

@@ -7,13 +7,17 @@ export const FeedbackOptions = ({
   incrementGood,
   incrementBad,
   incrementNeutral,
-  state,
 }) => {
   return (
     <div className={css.wraper}>
-      <Button onIncrement={incrementGood} state={state} option={'Good'} />
-      <Button onIncrement={incrementNeutral} state={state} option={'Neutral'} />
-      <Button onIncrement={incrementBad} state={state} option={'Bad'} />
+      <Button onIncrement={incrementGood} option={'Good'} />
+      <Button onIncrement={incrementNeutral} option={'Neutral'} />
+      <Button onIncrement={incrementBad} option={'Bad'} />
     </div>
   );
+};
+FeedbackOptions.propTypes = {
+  incrementGood: PropTypes.func.isRequired,
+  incrementBad: PropTypes.func.isRequired,
+  incrementNeutral: PropTypes.func.isRequired,
 };
