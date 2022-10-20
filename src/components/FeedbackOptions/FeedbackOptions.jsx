@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 import { Button } from './Button/Button';
+import { feedbacksArr } from 'feedbacks';
 
-export const FeedbackOptions = ({
-  incrementGood,
-  incrementBad,
-  incrementNeutral,
-}) => {
+export const FeedbackOptions = ({ handleIncrement }) => {
   return (
     <div className={css.wraper}>
-      <Button onIncrement={incrementGood} option={'Good'} />
-      <Button onIncrement={incrementNeutral} option={'Neutral'} />
-      <Button onIncrement={incrementBad} option={'Bad'} />
+      {feedbacksArr.map(feedback => (
+        <Button
+          key={feedback.name}
+          name={feedback.name}
+          onIncrement={handleIncrement}
+          title={feedback.title}
+        />
+      ))}
     </div>
   );
 };
 FeedbackOptions.propTypes = {
-  incrementGood: PropTypes.func.isRequired,
-  incrementBad: PropTypes.func.isRequired,
-  incrementNeutral: PropTypes.func.isRequired,
+  handleIncrement: PropTypes.func.isRequired,
 };

@@ -21,24 +21,11 @@ export class App extends Component {
     let total = this.state.bad + this.state.neutral + this.state.good;
     return total;
   };
-  incrementGood = () => {
+  handleIncrement = evt => {
+    const { name } = evt.target;
     this.setState(prevState => {
       return {
-        good: prevState.good + 1,
-      };
-    });
-  };
-  incrementNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-  incrementBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
+        [name]: prevState[name] + 1,
       };
     });
   };
@@ -46,11 +33,7 @@ export class App extends Component {
     return (
       <>
         <Section title={'Please leave feedback'}>
-          <FeedbackOptions
-            incrementGood={this.incrementGood}
-            incrementNeutral={this.incrementNeutral}
-            incrementBad={this.incrementBad}
-          />
+          <FeedbackOptions handleIncrement={this.handleIncrement} />
         </Section>
         <Section title={'Statistics'}>
           <Statistics
