@@ -12,7 +12,7 @@ export const Statistics = ({ countPositive, countTotal, state }) => {
       {feedbacksArr.map(feedback => (
         <p key={feedback.title}>
           {feedback.title}
-          <span className={css.statsValue}>{state[feedback.name]}</span>
+          <span className={css.statsValue}> : {state[feedback.name]}</span>
         </p>
       ))}
       <p>
